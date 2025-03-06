@@ -32,7 +32,8 @@ public class GrilleCreationService {
 			Random random = new Random();
 			int x = random.nextInt(hauteur);
 			int y = random.nextInt(largeur);
-			plateau.get(x).set(y, random.nextInt(2, 4));
+			int value = random.nextInt(2, 7 + difficulte);
+			plateau.get(x).set(y, value > 3 ? 0 : value);
 			nbTour++;
 		}
 		return plateau;
@@ -77,9 +78,7 @@ public class GrilleCreationService {
 		for (int ligne = 0; ligne < hauteur; ligne++) {
 			List<Integer> lignePlateau = new ArrayList<>();
 			for (int colonne = 0; colonne < largeur; colonne++) {
-				Random random = new Random();
-				int value = random.nextInt(0, 2);
-				lignePlateau.add(value);
+				lignePlateau.add(1);
 			}
 			plateau.add(lignePlateau);
 		}
