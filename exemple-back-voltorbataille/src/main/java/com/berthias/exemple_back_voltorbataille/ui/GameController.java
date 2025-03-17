@@ -26,21 +26,21 @@ public class GameController {
     }
 
     @GetMapping("/new-partie")
-    String getPartie(Model model) {
+    String getPartie() {
         partieController.nouvellePartie();
-        return getPlayTemplate(model);
+        return "redirect:/";
     }
 
     @GetMapping("/click-on-case")
-    String clickOnCase(@RequestParam int x, @RequestParam int y, Model model) {
+    String clickOnCase(@RequestParam int x, @RequestParam int y) {
         partieController.clickOnCase(x, y);
-        return getPlayTemplate(model);
+        return "redirect:/";
     }
 
     @GetMapping("/niveau-suivant")
-    String passerNiveauSuivant(Model model) {
+    String passerNiveauSuivant() {
         partieController.levelUp();
-        return getPlayTemplate(model);
+        return "redirect:/";
     }
 
     @GetMapping("/error")
