@@ -24,22 +24,29 @@ public class GameController {
 
 	@GetMapping("/new-partie")
 	String getPartie(Model model) {
-		System.out.println("GET /new-partie");
 		partieController.nouvellePartie();
 		return getPlayTemplate(model);
 	}
 
 	@GetMapping("/click-on-case")
 	String clickOnCase(@RequestParam int x, @RequestParam int y, Model model) {
-		System.out.println("GET /click-on-case");
 		partieController.clickOnCase(x, y);
 		return getPlayTemplate(model);
 	}
 
 	@GetMapping("/niveau-suivant")
 	String passerNiveauSuivant(Model model) {
-		System.out.println("GET /niveau-suivant");
 		partieController.levelUp();
 		return getPlayTemplate(model);
+	}
+
+	@GetMapping("/error")
+	String getError(Model model) {
+		return "error";
+	}
+
+	@GetMapping("/login")
+	String login() {
+		return "login";
 	}
 }

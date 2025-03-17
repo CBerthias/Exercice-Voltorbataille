@@ -15,26 +15,22 @@ public class PartieController {
 
 	@GetMapping("/partie")
 	public PartieDto getPartie() {
-		System.out.println("GET /partie");
 		Partie partie = partieService.getPartie();
 		return partieMapper.partieToPartieDto(partie);
 	}
 
 	@PostMapping("/partie")
 	public void nouvellePartie() {
-		System.out.println("POST /partie");
 		partieService.nouvellePartie();
 	}
 
 	@PostMapping("partie/click-on-case")
 	public void clickOnCase(@RequestParam int x, @RequestParam int y) {
-		System.out.println("POST /partie/click-on-case:" + x + ", " + y);
 		partieService.clickOnCase(x, y);
 	}
 
 	@PostMapping("/level-up")
 	public void levelUp() {
-		System.out.println("POST /level-up");
 		partieService.levelUp();
 	}
 }
